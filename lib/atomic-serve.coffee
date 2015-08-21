@@ -36,6 +36,7 @@ class AtomicServe
 
   stopServer: =>
     serve.stopServer()
+
   serialize: ->
 
   # Tear down any state and detach
