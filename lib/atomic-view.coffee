@@ -1,6 +1,3 @@
-{allowUnsafeEval, allowUnsafeNewFunction} = require 'loophole'
-
-{cordova, serve, start} = allowUnsafeEval -> allowUnsafeNewFunction -> require 'ionic-app-lib'
 
 module.exports =
 class AtomicView
@@ -15,8 +12,6 @@ class AtomicView
     message.classList.add('message')
     @element.appendChild(message)
 
-
-    console.log cordova, serve, start
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
