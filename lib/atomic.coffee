@@ -5,7 +5,6 @@ module.exports = Atomic =
   atomicView: null
   modalPanel: null
   subscriptions: null
-
   activate: (state) ->
     @atomicView = new AtomicView(state.atomicViewState)
     @modalPanel = atom.workspace.addModalPanel(item: @atomicView.getElement(), visible: false)
@@ -22,12 +21,14 @@ module.exports = Atomic =
     console.log window.atom.project.rootDirectories[0].path
 
   startServer: -> #Ionic serve
-    @start = new AtomicServe
-    @start.startServer()
+    @atomicServer = new AtomicServe
+    console.log @atomicServer
+    @atomicServer.startServer()
 
   stopServer: -> #Ionic serve
-    @stopServer = new AtomicServe
-    @stopServer.stopServer()
+    # @stopServer = new AtomicServe
+    # @stopServer.stopServer()
+    @atomicServer.stopServer()
 
   addPlatform: -> #Ionic platform add
     console.log window.atom.project.rootDirectories[0].path
